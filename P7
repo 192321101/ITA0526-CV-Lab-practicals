@@ -1,0 +1,23 @@
+import cv2
+
+cap = cv2.VideoCapture(0)   # 0 = webcam
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    cv2.imshow("Normal Video", frame)
+
+    # Slow motion (delay more)
+    if cv2.waitKey(100) & 0xFF == ord('q'):
+        break
+    
+    #For very slow motion
+    # cv2.waitKey(200)
+    
+    #For fast motion
+    #cv2.waitKey(10)
+
+cap.release()
+cv2.destroyAllWindows()
